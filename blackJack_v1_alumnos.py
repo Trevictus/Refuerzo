@@ -71,10 +71,10 @@ def contesta_a_pregunta(mensaje: str) -> bool:
     finalizar = False
     while not finalizar:
         try:
-            mensaje = input(">>> ").strip().lower()
-            if mensaje == 's' or mensaje == 'si':
+            respuesta = input(mensaje).strip().lower()
+            if respuesta == 's' or respuesta == 'si':
                 return True
-            elif mensaje == 'n' or mensaje == 'no':
+            elif respuesta == 'n' or respuesta == 'no':
                 return False
             else:
                 raise ValueError("*Error* respuesta no válida (s, si, n, no)")
@@ -88,6 +88,11 @@ def pedir_carta(baraja: set, cartas_jugador: list) -> bool:
         * Utiliza aquí la función contesta_a_pregunta y si retorna True, realiza una llamada a dame_carta() retornando el resultado de su ejecución.
         * Si contesta no, solo debes retornar False.
     """
+    if contesta_a_pregunta("¿Quieres una carta? (s/n) "):
+        dame_carta(baraja, cartas_jugador)
+    else:
+        return False
+    
 
 
 
