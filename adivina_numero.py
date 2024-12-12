@@ -3,7 +3,8 @@
 
 
 import os
-
+from random import randint
+rango_num_aleatorio = 50
 
 def borrar_consola():
     """ Limpiar la consola.
@@ -25,12 +26,27 @@ def menu():
            """
 
 def generar_numero_aleatorio() -> int:
-    pass
+    numero_aleatorio = randint(0, rango_num_aleatorio)
+    return numero_aleatorio
 
 
 def pedir_entero() -> int:
-    pass
+    while True:
+        try:    
+            entero = int(input(">>> "))
+            return entero
+        except ValueError:
+            print("Eso no es un número entero.")
 
+
+def validar_entero(entero: int) -> bool:
+    try:
+        if rango_num_aleatorio >= entero >= 0:
+            return True
+        else:
+            raise ValueError("No está dentro del rango permitido.")
+    except ValueError as e:
+        print(f"ERROR. {e}")
 
 def dar_pista() -> str:
     pass
